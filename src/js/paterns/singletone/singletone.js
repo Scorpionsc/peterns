@@ -1,4 +1,4 @@
-const singeltone = (function(){
+const singletone = (function(){
 
     let instance = null;
     const server = 'localhost';
@@ -17,4 +17,4 @@ const singeltone = (function(){
 
 }());
 
-export default singeltone;
+export default singletone;

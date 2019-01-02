@@ -1,11 +1,13 @@
 import module from '../paterns/module/module';
-import singeltone from '../paterns/singeltone/singeltone';
+import singletone from '../paterns/singletone/singletone';
 import Observable from '../paterns/observer/Observable';
 import Observer from '../paterns/observer/Observer';
+import { Catalog, SortStrategy } from '../paterns/strategy/strategy';
 
 
 (function(){
 
+    // module example
     const item = {
         name: 'Salt',
         price: 20,
@@ -18,11 +20,14 @@ import Observer from '../paterns/observer/Observer';
     module.addItem(item2);
     module.printItems();
 
-    const s1 = new singeltone();
-    const s2 = new singeltone();
+    // singletone example
+    const s1 = new singletone();
+    const s2 = new singletone();
     console.log(s1 === s2);
     s1.connect();
 
+
+    // observer example
     const observable = new Observable();
     const observer1 = new Observer( (msg)=>{
         console.log(`1: ${msg}`);
@@ -37,6 +42,35 @@ import Observer from '../paterns/observer/Observer';
     setTimeout(()=>{
         observable.sendMessage('Hi!!!');
     }, 3000);
+
+
+    //strategy example
+    class NameSortStrategy extends SortStrategy{
+        sort = (data)=>{
+            return data.sort( (a, b)=> ((a.name > b.name)? 1: -1) );
+        }
+    }
+    class PriceSortStrategy extends SortStrategy{
+        sort = (data)=>{
+            return data.sort( (a, b)=> a.price - b.price );
+        }
+    }
+    class RatingSortStrategy extends SortStrategy{
+        sort = (data)=>{
+            return data.sort( ( a, b)=> b.rating - a.rating );
+        }
+    }
+    const catalog = new Catalog();
+
+    catalog.setSortStrategy(new NameSortStrategy());
+    catalog.sort();
+
+    catalog.setSortStrategy(new PriceSortStrategy());
+    catalog.sort();
+
+    catalog.setSortStrategy(new RatingSortStrategy());
+    catalog.sort();
+
 
 
 
