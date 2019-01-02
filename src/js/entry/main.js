@@ -1,7 +1,7 @@
-import module from './../paterns/module';
-import singeltone from './../paterns/singeltone';
-import Observable from './../paterns/Observable';
-import Observer from './../paterns/Observer';
+import module from '../paterns/module/module';
+import singeltone from '../paterns/singeltone/singeltone';
+import Observable from '../paterns/observer/Observable';
+import Observer from '../paterns/observer/Observer';
 
 
 (function(){
