@@ -5,8 +5,8 @@
 
     <link rel="shortcut icon" href="favicon/favicon.ico">
 
-    <% for(var i=0; i < data.styles; i++) {%>
-    <script src="<%= data.styles[i]%>"></script>
+    <% for(var i=0; i < data.styles.length; i++) {%>
+    <link href="<%= data.styles[i]%>" rel="stylesheet">
     <% } %>
 
     <title><%= data.title %></title>

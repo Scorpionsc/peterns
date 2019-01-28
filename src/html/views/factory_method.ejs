@@ -6,7 +6,8 @@
             "./css/main.css"
         ],
         scripts: [
-            "./js/main.js"
+            "./js/main.js",
+            "./js/factory_method_pattern.js",
         ]
     };
 
@@ -19,17 +20,15 @@
 
     <body>
 
-
     <div class="site">
-        <dl>
-            <dt>Creational Design Patterns</dt>
-            <dd>
-                <a href="/simple_factory.html">Simple Factory Fattern</a>
-            </dd>
-            <dd>
-                <a href="/factory_method.html">Factory Method</a>
-            </dd>
-        </dl>
+        <a href="/" class="site__back">Back</a>
+
+        <div class="site__title">Factory Method</div>
+
+        <div class="site__description">
+            Метод класса который переопределяется в классе наследнике.
+        </div>
+
     </div>
 
     <%- include ../patterns/common/scripts.ejs %>

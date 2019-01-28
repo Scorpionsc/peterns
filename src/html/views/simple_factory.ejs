@@ -1,0 +1,38 @@
+<%
+    var data = {
+        lang: "en",
+        title: "index",
+        styles: [
+            "./css/main.css"
+        ],
+        scripts: [
+            "./js/main.js",
+            "./js/simple_factory_pattern.js",
+        ]
+    };
+
+%>
+
+<!DOCTYPE html>
+<html lang="<%= data.lang %>">
+
+    <%- include ../patterns/common/head.ejs %>
+
+    <body>
+
+    <div class="site">
+        <a href="/" class="site__back">Back</a>
+
+        <div class="site__title">Simple Factory Pattern</div>
+
+        <div class="site__description">
+            Метод фабричного класса возврящает нужный класс в зависимости от входящих параметров
+        </div>
+
+    </div>
+
+    <%- include ../patterns/common/scripts.ejs %>
+
+    </body>
+
+</html>
